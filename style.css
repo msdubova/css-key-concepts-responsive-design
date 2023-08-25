@@ -10,6 +10,12 @@ body {
     background-color: var(--light);
 }
 
+.card-container {
+    display: flex;
+    border: 2px solid var(--teal);
+    flex-wrap: wrap;
+}
+
 .card {
     padding: 10px;
     margin: 10px;
