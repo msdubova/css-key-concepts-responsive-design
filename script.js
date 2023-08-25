@@ -130,5 +130,26 @@ const cats= [
     }
 })();
 
+const toggleButton = document.getElementById('toggle');
 
+const bodyClassList = document.body.classList;
 
+function changeTheme() {
+    if (bodyClassList.contains('light-theme')) {
+        bodyClassList.remove('light-theme');
+        bodyClassList.add('dark-theme');
+        toggleButton.textContent = 'Night';
+    } else {
+        bodyClassList.remove('dark-theme');
+        bodyClassList.add('light-theme');
+        toggleButton.textContent = 'Day';
+    }
+}
+
+toggleButton.addEventListener('click', changeTheme);
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    bodyClassList.remove('light-theme');
+    bodyClassList.add('dark-theme');
+    toggleButton.textContent = 'Day';
+}
